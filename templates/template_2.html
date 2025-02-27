@@ -1,0 +1,42 @@
+<div class="scrollable-results" style="margin-bottom: 15px;">
+    <table border="1">
+        <!-- 渲染表头 -->
+        <thead>
+            <tr>
+                {% for key in iterm['rows'][0].keys() %}
+                    <th>{{ key }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 渲染表内容 -->
+            {% for row in iterm['rows'] %}
+                <tr>
+                    {% for key, value in row.items() %}
+                        <td>
+                            {% if value is iterable and value is not string %}
+                                <div class="scrollable-results">
+                                    {% for item in value %}
+                                        {% if item is mapping %}
+                                            {% for k, v in item.items() %}
+                                                {{ k }}: {{ v }}<br>
+                                            {% endfor %}
+                                        {% else %}
+                                            {{ item }}<br>
+                                        {% endif %}
+                                        <hr>
+                                    {% endfor %}
+                                </div>
+                                
+                            {% else %}
+                                {{ value }}
+                            {% endif %}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+

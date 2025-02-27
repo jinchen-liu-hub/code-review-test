@@ -1,0 +1,29 @@
+    <!-- template_1.html -->
+        <!-- <div class="product-title">{{ iterm['cloud_product'] }}</div> -->
+        <table>
+            <tr>
+                <td class="key-cell">云产品</td>
+                <td>{{ iterm['cloud_product'] }}</td>
+                <td class="key-cell">类别</td>
+                <td>{{ iterm['category'] }}</td>
+                <td class="key-cell">风险等级</td>
+                <td class="highlight">低风险</td>
+            </tr>
+            <tr>
+                <td class="key-cell">评估逻辑</td>
+                <td colspan="5">{{ iterm['logic'] }}</td>
+
+                <tr>
+                <td class="key-cell">巡检结果</td>
+                <td colspan="5">
+                    <!-- 给巡检结果添加固定高度和滚动条 -->
+                    <div class="scrollable-results">
+                        <ul>
+                            {% for row in iterm['results'] %}
+                                <li>{{ row }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>

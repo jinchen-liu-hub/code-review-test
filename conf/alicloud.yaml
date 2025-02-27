@@ -1,0 +1,77 @@
+
+ali101:
+  cloud: alicloud-global
+  account_name: ali101_platform
+  account_id: 5266312050961101
+  regions: [us-east-1]
+ali102:
+  cloud: alicloud-global
+  account_name: ali102_fct
+  account_id: 5558812050979135
+  regions: [us-east-1]
+ali103:
+  cloud: alicloud-global
+  account_name: ali103_ffa
+  account_id: 5421712050991922
+  regions: [us-east-1]
+ali104:
+  cloud: alicloud-global
+  account_name: ali104_ffs
+  account_id: 5755215069586673
+  regions: [us-east-1]
+ali105:
+  cloud: alicloud-global
+  account_name: ali105_idlemafia2
+  account_id: 5638615069632647
+  regions: [us-east-1]
+ali106:
+  cloud: alicloud-global
+  account_name: ali106_cmg
+  account_id: 5803415069644983
+  regions: [us-east-1]
+ali107:
+  cloud: alicloud-global
+  account_name: ali107_m3
+  account_id: 5503715069657365
+  regions: [us-east-1]
+
+ali201:
+  cloud: alicloud-cn
+  account_name: ali201_platform
+  account_id: 1173701747121245
+  regions: [cn-beijing]
+ali202:
+  cloud: alicloud-cn
+  account_name: ali202_shared
+  account_id: 1719214104322423
+  regions: [cn-beijing]
+ali204:
+  cloud: alicloud-cn
+  account_name: ali204_gof
+  account_id: 1279611971830902
+  regions: [cn-beijing]
+ali206:
+  cloud: alicloud-cn
+  account_name: ali206_cup
+  account_id: 1350513939857210
+  regions: [cn-beijing]
+ali207:
+  cloud: alicloud-cn
+  account_name: ali207_dataproduct
+  account_id: 1696514028348703
+  regions: [cn-beijing]
+ali208:
+  cloud: alicloud-cn
+  account_name: ali208_vm3
+  account_id: 1757014028367969
+  regions: [cn-beijing]
+ali209:
+  cloud: alicloud-cn
+  account_name: ali209_sow
+  account_id: 1550914028391093
+  regions: [ cn-beijing ]
+ali213:
+  cloud: alicloud-cn
+  account_name: ali213_bam
+  account_id: 1282814028478954
+  regions: [cn-beijing]

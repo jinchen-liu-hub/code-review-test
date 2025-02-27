@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云资源巡检报告</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .cloud-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .cloud-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .toggle-button {
+            background-color: #fff;
+            border: none;
+            color: #3498db;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .toggle-button:hover {
+            background-color: #ddd;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        td {
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .highlight {
+            color: orange;
+            font-weight: bold;
+        }
+
+        .link {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        .key-cell {
+            width: 15%;
+            font-weight: bold;
+            background-color: #f9f9f9;
+        }
+
+        /* 卡片风格 */
+        .product-card {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .product-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .cloud-section {
+                padding: 10px;
+            }
+
+            .key-cell {
+                width: 30%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cloud-section" id="aws-section">
+        <div class="cloud-title">AWS
+            <button class="toggle-button" onclick="toggleVisibility('cloud-content-aws')">收起</button>
+        </div>
+        <div id="cloud-content-aws">
+            <div class="product-card">        <div class="product-title">Elasticache</div>
+        <!-- template_1.html -->
+            <!-- <div class="product-title">Elasticache</div> -->
+            <table>
+                <tr>
+                    <td class="key-cell">云产品</td>
+                    <td>Elasticache</td>
+                    <td class="key-cell">类别</td>
+                    <td>no tags</td>
+                    <td class="key-cell">风险等级</td>
+                    <td class="highlight">低风险</td>
+                </tr>
+                <tr>
+                    <td class="key-cell">评估逻辑</td>
+                    <td colspan="5">检查出没有配置tag的redis。</td>
+                </tr>
+                <tr>
+                    <td class="key-cell">巡检结果</td>
+                    <td colspan="5">
+                        <!-- 给巡检结果添加固定高度和滚动条 -->
+                        <div class="scrollable-results">
+                            <ul>
+                                
+                                    <li>207969907521, cn-northwest-1, ['bi-ad-redis50-002', 'bi-ad-redis50-001']</li>
+                                
+                                    <li>207969907521, cn-north-1, ['passport-prod']</li>
+                                
+                                    <li>921287511715, us-west-2, ['payment-redis-cluster-0001-001', 'payment-redis-cluster-0001-002', 'payment-redis-cluster-0001-003']</li>
+                                
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </table>        </div>
+            <div class="product-card">        <div class="product-title">EC2</div>
+        <!-- template_1.html -->
+            <!-- <div class="product-title">EC2</div> -->
+            <table>
+                <tr>
+                    <td class="key-cell">云产品</td>
+                    <td>EC2</td>
+                    <td class="key-cell">类别</td>
+                    <td>no snapshots</td>
+                    <td class="key-cell">风险等级</td>
+                    <td class="highlight">低风险</td>
+                </tr>
+                <tr>
+                    <td class="key-cell">评估逻辑</td>
+                    <td colspan="5">检查出service为mysql、mongo、redis的ec2近25小时内是否有快照。</td>
+                </tr>
+                <tr>
+                    <td class="key-cell">巡检结果</td>
+                    <td colspan="5">
+                        <!-- 给巡检结果添加固定高度和滚动条 -->
+                        <div class="scrollable-results">
+                            <ul>
+                                
+                                    <li>aws9_266508744455, us-west-2, mongo, ['i-05819e519c394eab9']</li>
+                                
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </table>    <!-- template_1.html -->
+            <!-- <div class="product-title">EC2</div> -->
+            <table>
+                <tr>
+                    <td class="key-cell">云产品</td>
+                    <td>EC2</td>
+                    <td class="key-cell">类别</td>
+                    <td>no tags</td>
+                    <td class="key-cell">风险等级</td>
+                    <td class="highlight">低风险</td>
+                </tr>
+                <tr>
+                    <td class="key-cell">评估逻辑</td>
+                    <td colspan="5">检查出没有配置tag的EC2。</td>
+                </tr>
+                <tr>
+                    <td class="key-cell">巡检结果</td>
+                    <td colspan="5">
+                        <!-- 给巡检结果添加固定高度和滚动条 -->
+                        <div class="scrollable-results">
+                            <ul>
+                                
+                                    <li>aws72_reyun-cn, cn-northwest-1, ['10.65.42.240', '10.65.42.125', '10.65.42.147', '10.65.42.200', '10.65.42.62', '10.65.42.84', '10.65.42.174']</li>
+                                
+                                    <li>aws23_DDPlatForm, us-west-2, ['10.13.148.26', '10.13.148.213']</li>
+                                
+                                    <li>aws9_Ops, us-west-2, ['10.13.0.237', '10.13.0.25']</li>
+                                
+                                    <li>aws3_Farm-Peakgames, us-west-2, ['172.30.0.21']</li>
+                                
+                                    <li>aws12_FFS-Global, us-west-2, ['10.13.80.95', '10.13.80.165']</li>
+                                
+                                    <li>aws53_aigc, us-west-2, ['10.83.9.238', '10.83.11.152', '10.83.9.106']</li>
+                                
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </table>        </div>
+        </div>
+    </div>
+    <div class="cloud-section" id="qcloud-section">
+        <div class="cloud-title">QCLOUD
+            <button class="toggle-button" onclick="toggleVisibility('cloud-content-qcloud')">收起</button>
+        </div>
+        <div id="cloud-content-qcloud">
+        </div>
+    </div>
+
+<script>
+    // 定义is_show flag来控制显示状态
+    var is_show = true;  // 默认显示
+
+    function toggleVisibility() {
+        var content = document.getElementById('aws-content');
+        var button = content.previousElementSibling.querySelector('.toggle-button');
+
+        // 根据is_show值控制内容显示与否
+        if (is_show) {
+            content.classList.add('collapsed-content');
+            button.textContent = '展开';
+        } else {
+            content.classList.remove('collapsed-content');
+            button.textContent = '收起';
+        }
+
+        // 切换is_show状态
+        is_show = !is_show;
+    }
+
+    // 根据is_show初始值控制页面加载时的显示状态
+    window.onload = function() {
+        if (!is_show) {
+            document.getElementById('aws-content').classList.add('collapsed-content');
+            document.querySelector('.toggle-button').textContent = '展开';
+        }
+    }
+</script>
+
+</body>
+</html>

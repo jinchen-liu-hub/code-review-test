@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云资源巡检报告</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .cloud-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .cloud-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px 5px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .toggle-button {
+            background-color: #fff;
+            border: none;
+            color: #3498db;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .toggle-button:hover {
+            background-color: #ddd;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        td {
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .highlight {
+            color: orange;
+            font-weight: bold;
+        }
+
+        .link {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        .key-cell {
+            width: 15%;
+            font-weight: bold;
+            background-color: #f9f9f9;
+        }
+
+        /* 功能卡片风格 */
+        .product-card {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .product-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        /* 隐藏内容的类 */
+        .collapsed-content {
+            display: none;
+        }
+
+        /* 巡检结果内容栏 */
+        .scrollable-results {
+            max-height: 500px; /* 固定高度 */
+            overflow-y: auto;  /* 启用垂直滚动条 */
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .scrollable-results ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .scrollable-results li {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="cloud-section" id="aliyun-section">
+    <div class="cloud-title">ALIYUN
+        <button class="toggle-button" onclick="toggleVisibility('cloud-content-aliyun')">收起</button>
+    </div>
+    <div id="cloud-content-aliyun">
+    </div>
+</div>
+<div class="cloud-section" id="aws-section">
+    <div class="cloud-title">AWS
+        <button class="toggle-button" onclick="toggleVisibility('cloud-content-aws')">收起</button>
+    </div>
+    <div id="cloud-content-aws">
+    </div>
+</div>
+<div class="cloud-section" id="global-section">
+    <div class="cloud-title">GLOBAL
+        <button class="toggle-button" onclick="toggleVisibility('cloud-content-global')">收起</button>
+    </div>
+    <div id="cloud-content-global">
+    </div>
+</div>
+<div class="cloud-section" id="qcloud-section">
+    <div class="cloud-title">QCLOUD
+        <button class="toggle-button" onclick="toggleVisibility('cloud-content-qcloud')">收起</button>
+    </div>
+    <div id="cloud-content-qcloud">
+        <div class="product-card">
+        <div class="product-title">Security Groups</div>
+    <!-- template_1.html -->
+        <!-- <div class="product-title">Security Groups</div> -->
+        <table>
+            <tr>
+                <td class="key-cell">云产品</td>
+                <td>Security Groups</td>
+                <td class="key-cell">类别</td>
+                <td>未使用的安全组</td>
+                <td class="key-cell">风险等级</td>
+                <td class="highlight">低风险</td>
+            </tr>
+            <tr>
+                <td class="key-cell">评估逻辑</td>
+                <td colspan="5">没有关联任何示例的安全组</td>
+
+                <tr>
+                <td class="key-cell">巡检结果</td>
+                <td colspan="5">
+                    <!-- 给巡检结果添加固定高度和滚动条 -->
+                    <div class="scrollable-results">
+                        <ul>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-m1lth5h1</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-h7sd0rz1</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-5djjcib5</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-n5anh2mp</li>
+                            
+                                <li>qcloud1, 100001421995, ap-shanghai, sg-4v0hdti8</li>
+                            
+                                <li>qcloud1, 100001421995, ap-hongkong, sg-5iahz4mt</li>
+                            
+                                <li>qcloud1, 100001421995, ap-hongkong, sg-bqe1v9b1</li>
+                            
+                                <li>qcloud1, 100001421995, ap-hongkong, sg-cz3rowf3</li>
+                            
+                                <li>qcloud5, 100034157372, ap-beijing, sg-j70b2ahr</li>
+                            
+                                <li>qcloud5, 100034157372, ap-beijing, sg-b40rve65</li>
+                            
+                                <li>qcloud5, 100034157372, ap-beijing, sg-1kyucr2p</li>
+                            
+                                <li>qcloud5, 100034157372, ap-beijing, sg-kf7ajv83</li>
+                            
+                                <li>qcloud5, 100034157372, ap-beijing, sg-pnvifswn</li>
+                            
+                                <li>qcloud5, 100034157372, ap-beijing, sg-9krhoe3b</li>
+                            
+                                <li>qcloud6, 100034191905, ap-beijing, sg-azzwjaab</li>
+                            
+                                <li>qcloud7, 100034413852, ap-beijing, sg-mqpxhg29</li>
+                            
+                                <li>qcloud8, 100034479581, ap-beijing, sg-iwgn2hiz</li>
+                            
+                                <li>qcloud8, 100034479581, ap-beijing, sg-q55o4jbl</li>
+                            
+                                <li>qcloud9, 100034480127, ap-beijing, sg-1sisk9en</li>
+                            
+                                <li>qcloud9, 100034480127, ap-beijing, sg-81awb9qx</li>
+                            
+                                <li>qcloud9, 100034480127, ap-beijing, sg-m1uqj1mn</li>
+                            
+                                <li>qcloud9, 100034480127, ap-beijing, sg-eswut9rz</li>
+                            
+                                <li>qcloud10, 100034480143, ap-beijing, sg-k68469cl</li>
+                            
+                                <li>qcloud10, 100034480143, ap-beijing, sg-f8ogbfq1</li>
+                            
+                                <li>qcloud10, 100034480143, ap-beijing, sg-igocu81d</li>
+                            
+                                <li>qcloud10, 100034480143, ap-beijing, sg-2r1a1q49</li>
+                            
+                                <li>qcloud10, 100034480143, ap-beijing, sg-53h6cg2j</li>
+                            
+                                <li>qcloud10, 100034480143, ap-beijing, sg-8ovaarod</li>
+                            
+                                <li>qcloud11, 100034592868, ap-beijing, sg-f521izen</li>
+                            
+                                <li>qcloud11, 100034592868, ap-beijing, sg-dn897v77</li>
+                            
+                                <li>qcloud14, 100034592861, ap-beijing, sg-ikbhtbhz</li>
+                            
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>    <!-- template_1.html -->
+        <!-- <div class="product-title">Security Groups</div> -->
+        <table>
+            <tr>
+                <td class="key-cell">云产品</td>
+                <td>Security Groups</td>
+                <td class="key-cell">类别</td>
+                <td>对外开放所有可访问的安全组</td>
+                <td class="key-cell">风险等级</td>
+                <td class="highlight">低风险</td>
+            </tr>
+            <tr>
+                <td class="key-cell">评估逻辑</td>
+                <td colspan="5">对外开放0.0.0.0/0的安全组</td>
+
+                <tr>
+                <td class="key-cell">巡检结果</td>
+                <td colspan="5">
+                    <!-- 给巡检结果添加固定高度和滚动条 -->
+                    <div class="scrollable-results">
+                        <ul>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-g9pyvs9f, 9920,8988,9910,9911,9960,9980,10910</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-hkcpgeux, 60090-60100</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-d6idi2xj, 8988,9910,9960,10910,9980,9950</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-2b469reh, 18087</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-8hat22yl, 53128</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-2ghrt38f, 9970,9960,8988,10800,9910</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-3jht0px7, 443,80</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-judyl8vz, 4321,8080,9090,80,443</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-0zwsmqcf, 9911,80,443</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-1rbybr83, 30000-32768,30000-32768</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-08ip6ss3, 8000</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-kn04aoxr, 31001</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-85zg83mb, 8089,8989,443,80</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-987r0661, 8899</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-r0hcvg1n, 80,443,30000-32768,30000-32768</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-eitg0fyp, 9920,8988,9910,9960,9980,10910,10920</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-pw6k68u1, 9910,80,443</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-mpu3ijll, 9070,9080,8090,8000,80,443</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-r0619ofn, 80</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-q7djkkov, 9090</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-ifcrz8hr, 30000-32768,30000-32768</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-jilhezyx, 30000-32768,30000-32768</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-ohe7hy5v, 443,443,80,80</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-ncpkf4vr, 443,80</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-72i98ayn, 3690,80,443</li>
+                            
+                                <li>qcloud1, 100001421995, ap-beijing, sg-dr4sd07t, 8988,9910,9911,9990,10910,9980,5310,5311,9960,9950,8988,9910</li>
+                            
+                                <li>qcloud1, 100001421995, ap-guangzhou, sg-ldq5zkxb, 80</li>
+                            
+                                <li>qcloud1, 100001421995, ap-guangzhou-open, sg-ke5ex8bt, 80,443,9001</li>
+                            
+                                <li>qcloud1, 100001421995, ap-shanghai, sg-4bs3h5ho, 8080,443,80</li>
+                            
+                                <li>qcloud1, 100001421995, ap-shanghai, sg-7e0vycjw, 80,443,41103,41105,41107,30107,30103,30105,30101,18081,30110,30109,30111,8091,8080,8090</li>
+                            
+                                <li>qcloud4, 100029875734, ap-beijing, sg-rvhay0hf, 7000-8000,8080,80,443</li>
+                            
+                                <li>qcloud4, 100029875734, ap-beijing, sg-goium861, 7900</li>
+                            
+                                <li>qcloud6, 100034191905, ap-beijing, sg-pcpulv09, 14001,14005,14006,14014,14015,13001,13005,13006,13014,13015,12001,12015</li>
+                            
+                                <li>qcloud6, 100034191905, ap-beijing, sg-mmu33ndr, 80,443</li>
+                            
+                                <li>qcloud7, 100034413852, ap-beijing, sg-9l0tzx0b, 10000-40000</li>
+                            
+                                <li>qcloud8, 100034479581, ap-beijing, sg-hk3ch0d9, 443,80</li>
+                            
+                                <li>qcloud8, 100034479581, ap-beijing, sg-01n6v44f, 80,443</li>
+                            
+                                <li>qcloud8, 100034479581, ap-beijing, sg-2jqtkkk7, 15010,30101,30103,30105,30107,30108,30109,30110,30111,30112,56103,56105,56107,56108</li>
+                            
+                                <li>qcloud9, 100034480127, ap-beijing, sg-ir0pmeb9, 80,80,443,443</li>
+                            
+                                <li>qcloud13, 100034592906, ap-beijing, sg-8gq8i38z, 443</li>
+                            
+                                <li>qcloud14, 100034592861, ap-beijing, sg-rmuelj95, 443,443</li>
+                            
+                                <li>qcloud14, 100034592861, ap-beijing, sg-hk9eosxp, 8090,8090</li>
+                            
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>        </div>
+    </div>
+</div>
+
+
+<script>
+    // 切换显示和隐藏的函数
+    function toggleVisibility(contentId) {
+        var content = document.getElementById(contentId);
+        var button = content.previousElementSibling.querySelector('.toggle-button');
+
+        // 切换内容的显示与隐藏
+        if (content.style.display === 'none' || content.classList.contains('collapsed-content')) {
+            content.style.display = 'block';
+            content.classList.remove('collapsed-content');
+            button.textContent = '收起';
+        } else {
+            content.style.display = 'none';
+            content.classList.add('collapsed-content');
+            button.textContent = '展开';
+        }
+    }
+</script>
+
+</body>
+</html>

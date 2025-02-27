@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云资源巡检报告</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .cloud-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .cloud-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px 5px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .toggle-button {
+            background-color: #fff;
+            border: none;
+            color: #3498db;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .toggle-button:hover {
+            background-color: #ddd;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: auto;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            white-space: nowrap;
+        }
+
+        td {
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .highlight {
+            color: orange;
+            font-weight: bold;
+        }
+
+        .link {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        .key-cell {
+            width: 15%;
+            font-weight: bold;
+            background-color: #f9f9f9;
+        }
+
+        /* 功能卡片风格 */
+        .product-card {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .product-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        /* 隐藏内容的类 */
+        .collapsed-content {
+            display: none;
+        }
+
+        /* 巡检结果内容栏 */
+        .scrollable-results {
+            max-height: 200px; /* 固定高度 */
+            overflow-y: auto;  /* 启用垂直滚动条 */
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .scrollable-results ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .scrollable-results li {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="cloud-section" id="aws-section">
+    <div class="cloud-title">AWS
+        <button class="toggle-button" onclick="toggleVisibility('cloud-content-aws')">收起</button>
+    </div>
+    <div id="cloud-content-aws">
+        <div class="product-card">
+        <div class="product-title">Elasticache</div>
+    <!-- template_1.html -->
+        <!-- <div class="product-title">Elasticache</div> -->
+        <table>
+            <tr>
+                <td class="key-cell">云产品</td>
+                <td>Elasticache</td>
+                <td class="key-cell">类别</td>
+                <td>no tags</td>
+                <td class="key-cell">风险等级</td>
+                <td class="highlight">低风险</td>
+            </tr>
+            <tr>
+                <td class="key-cell">评估逻辑</td>
+                <td colspan="5">检查出没有配置tag的redis。</td>
+            </tr>
+            <tr>
+                <td class="key-cell">巡检结果</td>
+                <td colspan="5">
+                    <!-- 给巡检结果添加固定高度和滚动条 -->
+                    <div class="scrollable-results">
+                        <ul>
+                            
+                                <li>207969907521, cn-north-1, ['passport-prod']</li>
+                            
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>        </div>
+        <div class="product-card">
+        <div class="product-title">EC2</div>
+    <!-- template_1.html -->
+        <!-- <div class="product-title">EC2</div> -->
+        <table>
+            <tr>
+                <td class="key-cell">云产品</td>
+                <td>EC2</td>
+                <td class="key-cell">类别</td>
+                <td>no tags</td>
+                <td class="key-cell">风险等级</td>
+                <td class="highlight">低风险</td>
+            </tr>
+            <tr>
+                <td class="key-cell">评估逻辑</td>
+                <td colspan="5">检查出没有配置tag的EC2。</td>
+            </tr>
+            <tr>
+                <td class="key-cell">巡检结果</td>
+                <td colspan="5">
+                    <!-- 给巡检结果添加固定高度和滚动条 -->
+                    <div class="scrollable-results">
+                        <ul>
+                            
+                                <li>aws72_reyun-cn, cn-northwest-1, ['10.65.42.240', '10.65.42.125', '10.65.42.147', '10.65.42.200', '10.65.42.62', '10.65.42.84', '10.65.42.174']</li>
+                            
+                                <li>aws23_DDPlatForm, us-west-2, ['10.13.148.26']</li>
+                            
+                                <li>aws53_aigc, us-west-2, ['10.83.10.160', '10.83.9.237']</li>
+                            
+                                <li>aws3_Farm-Peakgames, us-west-2, ['172.30.0.21']</li>
+                            
+                                <li>aws12_FFS-Global, us-west-2, ['10.13.80.133']</li>
+                            
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>    <!-- template_1.html -->
+        <!-- <div class="product-title">EC2</div> -->
+        <table>
+            <tr>
+                <td class="key-cell">云产品</td>
+                <td>EC2</td>
+                <td class="key-cell">类别</td>
+                <td>no snapshots</td>
+                <td class="key-cell">风险等级</td>
+                <td class="highlight">低风险</td>
+            </tr>
+            <tr>
+                <td class="key-cell">评估逻辑</td>
+                <td colspan="5">检查出service为mysql、mongo、redis的ec2近25小时内是否有快照。</td>
+            </tr>
+            <tr>
+                <td class="key-cell">巡检结果</td>
+                <td colspan="5">
+                    <!-- 给巡检结果添加固定高度和滚动条 -->
+                    <div class="scrollable-results">
+                        <ul>
+                            
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>        </div>
+        <div class="product-card">
+        <div class="product-title">Health</div>
+    <!-- template_1.html -->
+        <!-- <div class="product-title">Health</div> -->
+        <table>
+            <tr>
+                <td class="key-cell">云产品</td>
+                <td>Health</td>
+                <td class="key-cell">类别</td>
+                <td>需要关注的事件</td>
+                <td class="key-cell">风险等级</td>
+                <td class="highlight">低风险</td>
+            </tr>
+            <tr>
+                <td class="key-cell">评估逻辑</td>
+                <td colspan="5">检查出EC2或RDS是否发生了自动调度的事件。</td>
+            </tr>
+            <tr>
+                <td class="key-cell">巡检结果</td>
+                <td colspan="5">
+                    <!-- 给巡检结果添加固定高度和滚动条 -->
+                    <div class="scrollable-results">
+                        <ul>
+                            
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>        </div>
+        <div class="product-card">
+        <div class="product-title">EBS</div>
+    <!-- template_1.html -->
+        <!-- <div class="product-title">EBS</div> -->
+        <table>
+            <tr>
+                <td class="key-cell">云产品</td>
+                <td>EBS</td>
+                <td class="key-cell">类别</td>
+                <td>未使用EBS</td>
+                <td class="key-cell">风险等级</td>
+                <td class="highlight">低风险</td>
+            </tr>
+            <tr>
+                <td class="key-cell">评估逻辑</td>
+                <td colspan="5">检查出没有与EC2实例关联的EBS。</td>
+            </tr>
+            <tr>
+                <td class="key-cell">巡检结果</td>
+                <td colspan="5">
+                    <!-- 给巡检结果添加固定高度和滚动条 -->
+                    <div class="scrollable-results">
+                        <ul>
+                            
+                                <li>aws23_DDPlatForm_131433655760, us-west-2, ['vol-0561a569b7c7399a7']</li>
+                            
+                                <li>aws66_zhongtai_413386416816, us-west-2, ['vol-0adb95cae6a21c3db']</li>
+                            
+                                <li>aws51_bi-cn_569535923312, cn-northwest-1, ['vol-0243bd555645b2db2', 'vol-047fb82dd4e433f99']</li>
+                            
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>        </div>
+        <div class="product-card">
+        <div class="product-title">EIP</div>
+    <!-- template_1.html -->
+        <!-- <div class="product-title">EIP</div> -->
+        <table>
+            <tr>
+                <td class="key-cell">云产品</td>
+                <td>EIP</td>
+                <td class="key-cell">类别</td>
+                <td>未使用EIP</td>
+                <td class="key-cell">风险等级</td>
+                <td class="highlight">低风险</td>
+            </tr>
+            <tr>
+                <td class="key-cell">评估逻辑</td>
+                <td colspan="5">检查出没有与EC2实例关联的EIP。</td>
+            </tr>
+            <tr>
+                <td class="key-cell">巡检结果</td>
+                <td colspan="5">
+                    <!-- 给巡检结果添加固定高度和滚动条 -->
+                    <div class="scrollable-results">
+                        <ul>
+                            
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>        </div>
+        <div class="product-card">
+        <div class="product-title">RDS</div>
+    <!-- template_1.html -->
+        <!-- <div class="product-title">RDS</div> -->
+        <table>
+            <tr>
+                <td class="key-cell">云产品</td>
+                <td>RDS</td>
+                <td class="key-cell">类别</td>
+                <td>Rds维护事件</td>
+                <td class="key-cell">风险等级</td>
+                <td class="highlight">低风险</td>
+            </tr>
+            <tr>
+                <td class="key-cell">评估逻辑</td>
+                <td colspan="5">检查出RDS是否存在即将维护的事件。</td>
+            </tr>
+            <tr>
+                <td class="key-cell">巡检结果</td>
+                <td colspan="5">
+                    <!-- 给巡检结果添加固定高度和滚动条 -->
+                    <div class="scrollable-results">
+                        <ul>
+                            
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>    <!-- template_1.html -->
+        <!-- <div class="product-title">RDS</div> -->
+        <table>
+            <tr>
+                <td class="key-cell">云产品</td>
+                <td>RDS</td>
+                <td class="key-cell">类别</td>
+                <td>no tags</td>
+                <td class="key-cell">风险等级</td>
+                <td class="highlight">低风险</td>
+            </tr>
+            <tr>
+                <td class="key-cell">评估逻辑</td>
+                <td colspan="5">检查出没有配置tag的RDS。</td>
+            </tr>
+            <tr>
+                <td class="key-cell">巡检结果</td>
+                <td colspan="5">
+                    <!-- 给巡检结果添加固定高度和滚动条 -->
+                    <div class="scrollable-results">
+                        <ul>
+                            
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>        </div>
+    </div>
+</div>
+<div class="cloud-section" id="global-section">
+    <div class="cloud-title">GLOBAL
+        <button class="toggle-button" onclick="toggleVisibility('cloud-content-global')">收起</button>
+    </div>
+    <div id="cloud-content-global">
+        <div class="product-card">
+            <div class="product-title">Prometheus</div>
+        <!-- template_1.html -->
+            <!-- <div class="product-title">Prometheus</div> -->
+            <table>
+                <tr>
+                    <td class="key-cell">项目名称</td>
+                    <td class="key-cell">告警名称</td>
+                    <td class="key-cell">告警级别</td>
+                    <td class="key-cell">实例名称</td>
+                    <td class="key-cell">实例ID</td>
+                    <td class="key-cell">告警次数</td>
+                    <td class="key-cell">告警时段</td>
+                </tr>
+                <tr>
+                    <td>fat</td>
+                    <td>fat.Sandwich请求同比昨日下降(百分比)</td>
+                    <td>Critical</td>
+                    <td>None</td>
+                    <td>None</td>
+                    <td>2</td>
+                    <td>1731511500-1731511500,2mins
+                        1731511500-1731511500,2mins
+                    </td>
+                </tr>
+        </table>        </div>
+    </div>
+</div>
+<div class="cloud-section" id="qcloud-section">
+    <div class="cloud-title">QCLOUD
+        <button class="toggle-button" onclick="toggleVisibility('cloud-content-qcloud')">收起</button>
+    </div>
+    <div id="cloud-content-qcloud">
+    </div>
+</div>
+
+
+<script>
+    // 切换显示和隐藏的函数
+    function toggleVisibility(contentId) {
+        var content = document.getElementById(contentId);
+        var button = content.previousElementSibling.querySelector('.toggle-button');
+
+        // 切换内容的显示与隐藏
+        if (content.style.display === 'none' || content.classList.contains('collapsed-content')) {
+            content.style.display = 'block';
+            content.classList.remove('collapsed-content');
+            button.textContent = '收起';
+        } else {
+            content.style.display = 'none';
+            content.classList.add('collapsed-content');
+            button.textContent = '展开';
+        }
+    }
+</script>
+
+</body>
+</html>

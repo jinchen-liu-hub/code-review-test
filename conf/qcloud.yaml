@@ -1,0 +1,75 @@
+
+qcloud1:
+  account_name: qcloud_main
+  account_id: 100001421995
+  regions: [ap-beijing, ap-guangzhou, eu-frankfurt, ap-singapore, ap-guangzhou-open, ap-shanghai, ap-hongkong]
+
+qcloud4:
+  account_name: qcloud_ace
+  account_id: 100029875734
+  regions: [ap-beijing]
+
+qcloud5:
+  account_name: qcloud_idlegame
+  account_id: 100034157372
+  regions: [ap-beijing]
+
+qcloud6:
+  account_name: qcloud_gof
+  account_id: 100034191905
+  regions: [ap-beijing]
+
+qcloud7:
+  account_name: qcloud_wws
+  account_id: 100034413852
+  regions: [ap-beijing]
+
+qcloud8:
+  account_name: qcloud_idlemafia
+  account_id: 100034479581
+  regions: [ap-beijing]
+
+qcloud9:
+  account_name: qcloud_thinkingdata
+  account_id: 100034480127
+  regions: [ap-beijing]
+
+qcloud10:
+  account_name: qcloud_vm3
+  account_id: 100034480143
+  regions: [ap-beijing]
+
+qcloud11:
+  account_name: qcloud_ffa
+  account_id: 100034592868
+  regions: [ap-beijing]
+
+qcloud12:
+  account_name: qcloud_vld
+  account_id: 100028202158
+  regions: [ap-beijing]
+
+qcloud13:
+  account_name: qcloud_sfw
+  account_id: 100034592906
+  regions: [ap-beijing]
+
+qcloud14:
+  account_name: qcloud_dsc
+  account_id: 100034592861
+  regions: [ap-beijing]
+
+qcloud15:
+  account_name: qcloud_flywheel
+  account_id: 100034592919
+  regions: [ap-beijing]
+
+qcloud16:
+  account_name: qcloud_too
+  account_id: 100034592925
+  regions: [ap-beijing]
+
+qcloud17:
+  account_name: qcloud_match3d
+  account_id: 100034592938
+  regions: [ap-beijing]

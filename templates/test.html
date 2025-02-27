@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统告警报告</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        .alert-container { margin-bottom: 20px; }
+        .alert-category { font-size: 1.2em; font-weight: bold; margin-top: 20px; color: #555; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { padding: 8px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .critical { color: #ff4d4d; font-weight: bold; }
+        .warning { color: #ff9900; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1>系统告警报告</h1>
+
+    <!-- 告警组 - 示例：Critical告警 -->
+    <div class="alert-container">
+        <div class="alert-category">Critical 告警</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>指标名称</th>
+                    <th>告警级别</th>
+                    <th>实例名称</th>
+                    <th>告警开始时间</th>
+                    <th>告警结束时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>fantasy | fat-1</td>
+                    <td class="critical">Critical</td>
+                    <td>instance-1</td>
+                    <td>2024-10-01 12:30:00</td>
+                    <td>2024-10-01 14:45:00</td>
+                </tr>
+                <tr>
+                    <td>vm3 | module-2</td>
+                    <td class="critical">Critical</td>
+                    <td>instance-2</td>
+                    <td>2024-10-02 09:15:00</td>
+                    <td>2024-10-02 11:00:00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 告警组 - 示例：Warning告警 -->
+    <div class="alert-container">
+        <div class="alert-category">Warning 告警</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>指标名称</th>
+                    <th>告警级别</th>
+                    <th>实例名称</th>
+                    <th>告警开始时间</th>
+                    <th>告警结束时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>fat | service-3</td>
+                    <td class="warning">Warning</td>
+                    <td>instance-3</td>
+                    <td>2024-10-03 08:00:00</td>
+                    <td>2024-10-03 08:45:00</td>
+                </tr>
+                <tr>
+                    <td>vm3 | module-4</td>
+                    <td class="warning">Warning</td>
+                    <td>instance-4</td>
+                    <td>2024-10-04 14:30:00</td>
+                    <td>2024-10-04 15:10:00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
