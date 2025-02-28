@@ -82,19 +82,19 @@ def main():
     parser.add_argument('--scan_scope', default='DIFF-Commit')
 
     args = parser.parse_args()
-    print(f"access_token: {args.access_token}")
+    # print(f"access_token: {args.access_token}")
     # 发送commit代码审查请求
-    response_data = send_code_review_request(api_endpoint, api_key, pr_id, repo_url, access_token, owner, repo,
+    response_data = send_code_review_request(api_endpoint, api_key, pr_id, repo_url, args.access_token, owner, repo,
                                              scan_scope, branch)
     print(response_data)
     # 发送total repo 代码审查请求
     scan_scope = "ALL"
-    response_data = send_code_review_request(api_endpoint, api_key, pr_id, repo_url, access_token, owner, repo,
+    response_data = send_code_review_request(api_endpoint, api_key, pr_id, repo_url, args.access_token, owner, repo,
                                              scan_scope, branch)
     print(response_data)
     pr_id = "1"
     scan_scope = "DIFF-Pr"
-    response_data = send_code_review_request(api_endpoint, api_key, pr_id, repo_url, access_token, owner, repo,
+    response_data = send_code_review_request(api_endpoint, api_key, pr_id, repo_url, args.access_token, owner, repo,
                                              scan_scope, branch)
     print(response_data)
     # 添加评论到 PR
