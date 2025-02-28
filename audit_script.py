@@ -4,6 +4,7 @@ import base64
 import os
 from github3 import login
 
+
 def encrypt_token(token, seed=10):
     try:
         if not isinstance(token, str):
@@ -21,7 +22,9 @@ def encrypt_token(token, seed=10):
         print(f"Error encrypting token: {str(e)}")
         return ""
 
-def send_code_review_request(api_endpoint, api_key, pr_id, repo_url, access_token, owner, repository, scan_scope, branch):
+
+def send_code_review_request(api_endpoint, api_key, pr_id, repo_url, access_token, owner, repository, scan_scope,
+                             branch):
     try:
         enc_token = encrypt_token(access_token)
         url = f"{api_endpoint}codereview"
@@ -44,6 +47,7 @@ def send_code_review_request(api_endpoint, api_key, pr_id, repo_url, access_toke
         print(f"Error sending code review request: {str(e)}")
         return {}
 
+
 def comment_on_pr(repo, pr, comment_text):
     try:
         pr.create_comment(comment_text)
@@ -51,28 +55,32 @@ def comment_on_pr(repo, pr, comment_text):
     except Exception as e:
         print(f"Error adding comment to PR: {str(e)}")
 
+
 def main():
     api_endpoint = "https://cnuuox6yi6.execute-api.us-west-2.amazonaws.com/prod/"
     api_key = "MZQ3LjO31I5WmW08HsLHq34QwKSfb9Ht9oN4ldjR"
     owner = "jinchen-liu-hub"
     repo = "code-review-test"
-    pr_id = "b3eb5a604c84cdfff7bb5d19dbccba3c1b1d81c5"
+    pr_id = "6844cb075c38692d48ad86f664a73956d47dbc34"
     access_token = "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"
     repo_url = "https://github.com/jinchen-liu-hub/code-review-test.git"
-    scan_scope="DIFF-Commit"
+    scan_scope = "DIFF-Commit"
     branch = "main"
     ui_url = "http://54.68.83.141/reviewList"
 
     # 发送commit代码审查请求
-    response_data = send_code_review_request(api_endpoint, api_key, pr_id,repo_url, access_token, owner, repo, scan_scope, branch)
+    response_data = send_code_review_request(api_endpoint, api_key, pr_id, repo_url, access_token, owner, repo,
+                                             scan_scope, branch)
     print(response_data)
     # 发送total repo 代码审查请求
-    scan_scope="ALL"
-    response_data = send_code_review_request(api_endpoint, api_key, pr_id,repo_url, access_token, owner, repo, scan_scope, branch)
+    scan_scope = "ALL"
+    response_data = send_code_review_request(api_endpoint, api_key, pr_id, repo_url, access_token, owner, repo,
+                                             scan_scope, branch)
     print(response_data)
     pr_id = "1"
-    scan_scope="DIFF-Pr"
-    response_data = send_code_review_request(api_endpoint, api_key, pr_id,repo_url, access_token, owner, repo, scan_scope, branch)
+    scan_scope = "DIFF-Pr"
+    response_data = send_code_review_request(api_endpoint, api_key, pr_id, repo_url, access_token, owner, repo,
+                                             scan_scope, branch)
     print(response_data)
     # 添加评论到 PR
     # access_token can be another token which
@@ -82,6 +90,7 @@ def main():
 
     comment_text = f"""Claude Code Review Result: {ui_url}?project={owner}/{repo}&pr_id={pr_id}&branch={branch}"""
     comment_on_pr(repository, pr, comment_text)
+
 
 if __name__ == "__main__":
     main()
