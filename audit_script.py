@@ -82,6 +82,8 @@ def main():
     parser.add_argument('--scan_scope', default='DIFF-Commit')
 
     args = parser.parse_args()
+    repo_url = f"https://github.com/{args.owner}/{args.repository}.git"
+
     print(f"access_token: {args.access_token}")
     print(f"repo_url: {args.repo_url}")
     print(f"repository: {args.repository}")
@@ -90,13 +92,13 @@ def main():
     print(f"owner: {args.owner}")
     print(f"repository: {args.repository}")
     # 发送commit代码审查请求
-    response_data = send_code_review_request(api_endpoint, api_key, pr_id, repo_url, args.access_token, owner, repo,
-                                             scan_scope, branch)
+    response_data = send_code_review_request(api_endpoint, api_key, args.commit_sha, repo_url, args.access_token,
+                                             args.owner, args.repository, scan_scope, args.branch)
     print(response_data)
     # 发送total repo 代码审查请求
     scan_scope = "ALL"
-    response_data = send_code_review_request(api_endpoint, api_key, pr_id, repo_url, args.access_token, owner, repo,
-                                             scan_scope, branch)
+    response_data = send_code_review_request(api_endpoint, api_key, args.commit_sha, repo_url, args.access_token,
+                                             args.owner, args.repository, scan_scope, args.branch)
     print(response_data)
 
     # pr_id = "1"
@@ -106,12 +108,12 @@ def main():
     # print(response_data)
     # 添加评论到 PR
     # access_token can be another token which
-    gh = login(token=access_token)
-    repository = gh.repository(owner, repo)
-    pr = repository.pull_request(pr_id)
-
-    comment_text = f"""Claude Code Review Result: {ui_url}?project={owner}/{repo}&pr_id={pr_id}&branch={branch}"""
-    comment_on_pr(repository, pr, comment_text)
+    # gh = login(token=access_token)
+    # repository = gh.repository(owner, repo)
+    # pr = repository.pull_request(pr_id)
+    #
+    # comment_text = f"""Claude Code Review Result: {ui_url}?project={owner}/{repo}&pr_id={pr_id}&branch={branch}"""
+    # comment_on_pr(repository, pr, comment_text)
 
 
 if __name__ == "__main__":
