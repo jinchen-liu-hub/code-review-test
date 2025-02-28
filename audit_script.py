@@ -1,3 +1,4 @@
+import argparse
 import requests
 import json
 import base64
@@ -68,6 +69,20 @@ def main():
     branch = "main"
     ui_url = "http://54.68.83.141/reviewList"
 
+    parser = argparse.ArgumentParser(description='Code Review Automation')
+    parser.add_argument('--api_endpoint', required=True)
+    parser.add_argument('--api_key', required=True)
+    parser.add_argument('--owner', required=True)
+    parser.add_argument('--repository', required=True)
+    parser.add_argument('--access_token', required=True)
+    parser.add_argument('--repo_url', required=True)
+    parser.add_argument('--branch', required=True)
+    parser.add_argument('--pr_id', default='')
+    parser.add_argument('--commit_sha', default='')
+    parser.add_argument('--scan_scope', default='DIFF-Commit')
+
+    args = parser.parse_args()
+    print(f"access_token: {args.access_token}")
     # 发送commit代码审查请求
     response_data = send_code_review_request(api_endpoint, api_key, pr_id, repo_url, access_token, owner, repo,
                                              scan_scope, branch)
