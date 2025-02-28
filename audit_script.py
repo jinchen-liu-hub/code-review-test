@@ -82,7 +82,13 @@ def main():
     parser.add_argument('--scan_scope', default='DIFF-Commit')
 
     args = parser.parse_args()
-    # print(f"access_token: {args.access_token}")
+    print(f"access_token: {args.access_token}")
+    print(f"repo_url: {args.repo_url}")
+    print(f"repository: {args.repository}")
+    print(f"branch: {args.branch}")
+    print(f"commit_sha: {args.commit_sha}")
+    print(f"owner: {args.owner}")
+    print(f"repository: {args.repository}")
     # 发送commit代码审查请求
     response_data = send_code_review_request(api_endpoint, api_key, pr_id, repo_url, args.access_token, owner, repo,
                                              scan_scope, branch)
@@ -92,11 +98,12 @@ def main():
     response_data = send_code_review_request(api_endpoint, api_key, pr_id, repo_url, args.access_token, owner, repo,
                                              scan_scope, branch)
     print(response_data)
-    pr_id = "1"
-    scan_scope = "DIFF-Pr"
-    response_data = send_code_review_request(api_endpoint, api_key, pr_id, repo_url, args.access_token, owner, repo,
-                                             scan_scope, branch)
-    print(response_data)
+
+    # pr_id = "1"
+    # scan_scope = "DIFF-Pr"
+    # response_data = send_code_review_request(api_endpoint, api_key, pr_id, repo_url, args.access_token, owner, repo,
+    #                                          scan_scope, branch)
+    # print(response_data)
     # 添加评论到 PR
     # access_token can be another token which
     gh = login(token=access_token)
