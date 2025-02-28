@@ -40,7 +40,7 @@ jobs:
         env:
           API_ENDPOINT: ${{ secrets.API_ENDPOINT }}
           API_KEY: ${{ secrets.API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           UI_URL: ${{ secrets.UI_URL }}
         run: |
           python audit_script.py \
