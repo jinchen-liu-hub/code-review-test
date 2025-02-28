@@ -28,13 +28,13 @@ jobs:
         run: |
           pip install requests github3.py python-dotenv
 
-      - name: Get PR information
-        id: find-pr
-        if: ${{ github.event_name == 'push' }}
-        uses: jwalton/gh-find-current-pr@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          sha: ${{ github.sha }}
+      # - name: Get PR information
+      #   id: find-pr
+      #   if: ${{ github.event_name == 'push' }}
+      #   uses: jwalton/gh-find-current-pr@v1
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     sha: ${{ github.sha }}
 
       - name: Run Audit Script
         env:
